@@ -38,34 +38,34 @@
                     <div class="row ">
                         <div class="col-3">
                             <nav class="nav flex-column nav-pills">
-                                <a class="nav-item nav-link active" id="nav1-1" data-toggle="tab" aria-controls="tab1-1" href="#tab1-1">Flights</a>
-                                <a class="nav-item nav-link" id="nav1-2" data-toggle="tab" aria-controls="tab1-2" href="#tab1-2">Hotels</a>
-                                <a class="nav-item nav-link" id="nav1-3" data-toggle="tab" aria-controls="tab1-3" href="#tab1-3">Cars</a>
+                                <a class="nav-item nav-link active" id="nav-flights" data-toggle="tab" aria-controls="tab-flights" href="#tab-flights">Flights</a>
+                                <a class="nav-item nav-link" id="nav-hotels" data-toggle="tab" aria-controls="tab-hotels" href="#tab-hotels">Hotels</a>
+                                <a class="nav-item nav-link" id="nav-cars" data-toggle="tab" aria-controls="tab-cars" href="#tab-cars">Cars</a>
                             </nav>
                         </div>
                         <div class="col-9">
                             <div class="tab-content">
-                                <div class="tab-pane fade active show" id="tab1-1" aria-labelledby="nav1-1">
+                                <div class="tab-pane fade active show" id="tab-flights" aria-labelledby="nav-flights">
                                      <div class="row">
                                          <div class="col">
                                                 <form modal-body>
                                                         <div class="form-row ">
                                                           <div class="form-group col-md-6">
-                                                            <label for="input-date1">Start Date</label>
-                                                            <input type="date" class="form-control form-control-sm" id="input-date1" placeholder="mm/dd/yyyy">
+                                                            <label for="input-startdate-flights">Start Date</label>
+                                                            <input type="date" class="form-control form-control-sm" id="input-startdate-flights" placeholder="mm/dd/yyyy">
                                                           </div>
                                                           <div class="form-group col-md-6">
-                                                                <label for="input-date2">End Date</label>
-                                                                <input type="date" class="form-control form-control-sm" id="input-date2" placeholder="mm/dd/yyyy">
+                                                                <label for="input-enddate-flights">End Date</label>
+                                                                <input type="date" class="form-control form-control-sm" id="input-enddate-flights" placeholder="mm/dd/yyyy">
                                                             </div>
                                                         </div>
                                                         <div class="form-group">
-                                                          <label for="inputFrom1">From</label>
-                                                          <input type="text" class="form-control form-control-sm" id="inputFrom1" placeholder="Minsk">
+                                                          <label for="input-from-flights">From</label>
+                                                          <input type="text" class="form-control form-control-sm" id="input-from-flights" placeholder="Minsk">
                                                         </div>
                                                         <div class="form-group">
-                                                          <label for="inputTo1">To</label>
-                                                          <input type="text" class="form-control form-control-sm" id="inputTo1" placeholder="Moscow">
+                                                          <label for="input-to-flights">To</label>
+                                                          <input type="text" class="form-control form-control-sm" id="input-to-flights" placeholder="Moscow">
                                                         </div> 
                                                         <button type="submit" class="btn btn-primary">Search</button>
                                                         <button type="button" class="btn btn-default" name="reset_form" onclick="this.form.reset();" >Clear</button>
@@ -73,23 +73,23 @@
                                             </div>
                                          </div>
                                      </div>
-                                <div class="tab-pane fade" id="tab1-2" aria-labelledby="nav1-2"> 
+                                <div class="tab-pane fade" id="tab-hotels" aria-labelledby="nav-hotels"> 
                                         <div class="row">
                                                 <div class="col">
                                                        <form modal-body>
                                                                <div class="form-row ">
                                                                  <div class="form-group col-md-6">
-                                                                   <label for="input-date1">Start Date</label>
-                                                                   <input type="date" class="form-control form-control-sm" id="input-date1" placeholder="mm/dd/yyyy">
+                                                                   <label for="input-startdate-hotels">Start Date</label>
+                                                                   <input type="date" class="form-control form-control-sm" id="input-startdate-hotels" placeholder="mm/dd/yyyy">
                                                                  </div>
                                                                  <div class="form-group col-md-6">
-                                                                       <label for="input-date2">End Date</label>
-                                                                       <input type="date" class="form-control form-control-sm" id="input-date2" placeholder="mm/dd/yyyy">
+                                                                       <label for="input-enddate-hotels">End Date</label>
+                                                                       <input type="date" class="form-control form-control-sm" id="input-enddate-hotels" placeholder="mm/dd/yyyy">
                                                                    </div>
                                                                </div>
                                                                <div class="form-group">
-                                                                    <label for="AmenitiesSelect1">Amenities</label>
-                                                                    <select class="form-control" id="AmenitiesSelect1">
+                                                                    <label for="amenities-select-hotels">Amenities</label>
+                                                                    <select class="form-control form-control-sm" id="amenities-select-hotels">
                                                                       <option>&#9733;</option>
                                                                       <option>&#9733;&#9733;</option>
                                                                       <option>&#9733;&#9733;&#9733;</option>
@@ -99,8 +99,8 @@
                                                                   </div>
                                                                   
                                                                <div class="form-group">
-                                                                 <label class="mr-sm-2" for="SelectCountry1">Location</label>
-                                                                 <select class="custom-select mr-sm-2" id="SelectCountry1">
+                                                                 <label class="mr-sm-2" for="select-country-hotels">Location</label>
+                                                                 <select class="custom-select mr-sm-2 form-control-sm" id="select-country-hotels">
                                                                    <option selected>Choose country</option>
                                                                    <option value="1">One</option>
                                                                    <option value="2">Two</option>
@@ -108,8 +108,8 @@
                                                                  </select> 
                                                                 </div> 
                                                                 <div class="form-group">
-                                                                        <label class="mr-sm-2" for="SelectCity1">Location</label>
-                                                                        <select class="custom-select mr-sm-2" id="SelectCity1">
+                                                                        <label class="mr-sm-2" for="select-city-hotels">Location</label>
+                                                                        <select class="custom-select mr-sm-2 form-control-sm" id="select-city-hotels">
                                                                           <option selected>Choose city</option>
                                                                           <option value="1">One</option>
                                                                           <option value="2">Two</option>
@@ -117,12 +117,58 @@
                                                                         </select> 
                                                                        </div> 
                                                                <button type="submit" class="btn btn-primary">Search</button>
-                                                               <button type="button" class="btn btn-default" name="reset_form" onclick="this.form.reset();" >Clear</button>
-                                                           </form>
-                                                   </div>
+                                                               <button type="button" class="btn btn-default" name="reset_form" onclick="this.form.reset();">Clear</button>
+                                                        </form>
                                                 </div>
+                                        </div>
                                 </div>
-                                <div class="tab-pane fade" id="tab1-3" aria-labelledby="nav1-3">3 Далеко-далеко за словесными горами в стране, гласных и согласных живут рыбные тексты. Жизни если предупредила о заглавных встретил пустился все толку, обеспечивает?</div>
+                                <div class="tab-pane fade" id="tab-cars" aria-labelledby="nav-cars">
+                                        <div class="row">
+                                                <div class="col">
+                                                       <form modal-body>
+                                                               <div class="form-row ">
+                                                                 <div class="form-group col-md-6 ">
+                                                                   <label for="input-startdate-cars">Start Date</label>
+                                                                   <input type="date" class="form-control form-control-sm" id="input-startdate-cars" placeholder="mm/dd/yyyy">
+                                                                 </div>
+                                                                 <div class="form-group col-md-6">
+                                                                       <label for="input-enddate-hotels">End Date</label>
+                                                                       <input type="date" class="form-control form-control-sm" id="input-enddate-hotels" placeholder="mm/dd/yyyy">
+                                                                   </div>
+                                                               </div>
+                                                               <div class="form-group">
+                                                                    <label for="type-cars-select">Type</label>
+                                                                    <select class="form-control" id="type-cars-select">
+                                                                      <option selected value="economy">economy</option>
+                                                                      <option value="business">business</option>
+                                                                      <option value="luxury">luxury</option>
+                                                                    </select>
+                                                                  </div>
+                                                                  
+                                                               <div class="form-group">
+                                                                 <label class="mr-sm-2" for="select-country-cars">Location</label>
+                                                                 <select class="custom-select mr-sm-2 form-control-sm" id="select-country-cars">
+                                                                   <option selected>Choose country</option>
+                                                                   <option value="1">One</option>
+                                                                   <option value="2">Two</option>
+                                                                   <option value="3">Three</option>
+                                                                 </select> 
+                                                                </div> 
+                                                                <div class="form-group">
+                                                                        <label class="mr-sm-2" for="select-city-cars">Location</label>
+                                                                        <select class="custom-select mr-sm-2 form-control-sm" id="select-city-cars">
+                                                                          <option selected>Choose city</option>
+                                                                          <option value="1">One</option>
+                                                                          <option value="2">Two</option>
+                                                                          <option value="3">Three</option>
+                                                                        </select> 
+                                                                </div> 
+                                                     <button type="submit" class="btn btn-primary">Search</button>
+                                                     <button type="button" class="btn btn-default" name="reset_form" onclick="this.form.reset();" >Clear</button>
+                                                    </form>
+                                                </div>
+                                        </div>
+                                </div>
                             </div>
                         </div>
                     </div>
