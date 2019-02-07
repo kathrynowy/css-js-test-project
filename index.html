@@ -52,12 +52,13 @@
                                                         <div class="form-row ">
                                                           <div class="form-group col-md-6">
                                                             <label for="input-startdate-flights">Start Date</label>
-                                                            <input type="date" class="form-control form-control-sm" id="input-startdate-flights" placeholder="mm/dd/yyyy">
-                                                          </div>
-                                                          <div class="form-group col-md-6">
-                                                                <label for="input-enddate-flights">End Date</label>
-                                                                <input type="date" class="form-control form-control-sm" id="input-enddate-flights" placeholder="mm/dd/yyyy">
+                                                            <input type="date"  class="form-control form-control-sm" id="input-startdate-flights" class="dateStartInput" placeholder="mm/dd/yyyy" required>
                                                             </div>
+                                                          <div class="form-group col-md-6">
+                                                            <label for="input-enddate-flights">End Date</label>
+                                                            <input type="date" class="form-control form-control-sm" id="input-enddate-flights" class="dateEndInput" placeholder="mm/dd/yyyy" required>
+                                                            <span class="validity"></span>
+                                                          </div>
                                                         </div>
                                                         <div class="form-group">
                                                           <label for="input-from-flights">From</label>
@@ -67,25 +68,28 @@
                                                           <label for="input-to-flights">To</label>
                                                           <input type="text" class="form-control form-control-sm" id="input-to-flights" placeholder="Moscow">
                                                         </div> 
+                                                      <div class="d-flex justify-content-end"> 
                                                         <button type="submit" class="btn btn-primary">Search</button>
                                                         <button type="button" class="btn btn-default" name="reset_form" onclick="this.form.reset();" >Clear</button>
-                                                    </form>
+                                                      </div>
+                                              </form>
                                             </div>
                                          </div>
                                      </div>
                                 <div class="tab-pane fade" id="tab-hotels" aria-labelledby="nav-hotels"> 
                                         <div class="row">
                                                 <div class="col">
-                                                       <form modal-body>
+                                                       <form id="hotelsSub">
                                                                <div class="form-row ">
                                                                  <div class="form-group col-md-6">
                                                                    <label for="input-startdate-hotels">Start Date</label>
-                                                                   <input type="date" class="form-control form-control-sm" id="input-startdate-hotels" placeholder="mm/dd/yyyy">
-                                                                 </div>
+                                                                   <input type="date" class="form-control form-control-sm" id="input-startdate-hotels" placeholder="mm/dd/yyyy" required>
+                                                                    </div>
                                                                  <div class="form-group col-md-6">
                                                                        <label for="input-enddate-hotels">End Date</label>
-                                                                       <input type="date" class="form-control form-control-sm" id="input-enddate-hotels" placeholder="mm/dd/yyyy">
-                                                                   </div>
+                                                                       <input type="date" class="form-control form-control-sm" id="input-enddate-hotels" placeholder="mm/dd/yyyy" required>
+                                                                       <span class="validity"></span>
+                                                                  </div>
                                                                </div>
                                                                <div class="form-group">
                                                                     <label for="amenities-select-hotels">Amenities</label>
@@ -116,8 +120,10 @@
                                                                           <option value="3">Three</option>
                                                                         </select> 
                                                                        </div> 
-                                                               <button type="submit" class="btn btn-primary">Search</button>
-                                                               <button type="button" class="btn btn-default" name="reset_form" onclick="this.form.reset();">Clear</button>
+                                                                   <div class="d-flex justify-content-end"> 
+                                                                    <button type="submit" class="btn btn-primary">Search</button>
+                                                                    <button type="button" class="btn btn-default" name="reset_form" onclick="this.form.reset();" >Clear</button>
+                                                                  </div>
                                                         </form>
                                                 </div>
                                         </div>
@@ -125,16 +131,17 @@
                                 <div class="tab-pane fade" id="tab-cars" aria-labelledby="nav-cars">
                                         <div class="row">
                                                 <div class="col">
-                                                       <form modal-body>
+                                                       <form modal-body >
                                                                <div class="form-row ">
                                                                  <div class="form-group col-md-6 ">
                                                                    <label for="input-startdate-cars">Start Date</label>
-                                                                   <input type="date" class="form-control form-control-sm" id="input-startdate-cars" placeholder="mm/dd/yyyy">
-                                                                 </div>
-                                                                 <div class="form-group col-md-6">
-                                                                       <label for="input-enddate-hotels">End Date</label>
-                                                                       <input type="date" class="form-control form-control-sm" id="input-enddate-hotels" placeholder="mm/dd/yyyy">
+                                                                   <input type="date" class="form-control form-control-sm" id="input-startdate-cars" placeholder="mm/dd/yyyy" required>
                                                                    </div>
+                                                                 <div class="form-group col-md-6">
+                                                                       <label for="input-enddate-cars">End Date</label>
+                                                                       <input type="date" class="form-control form-control-sm" id="input-enddate-cars" placeholder="mm/dd/yyyy" required>
+                                                                       <span class="validity"></span> 
+                                                                 </div>
                                                                </div>
                                                                <div class="form-group">
                                                                     <label for="type-cars-select">Type</label>
@@ -163,8 +170,10 @@
                                                                           <option value="3">Three</option>
                                                                         </select> 
                                                                 </div> 
-                                                     <button type="submit" class="btn btn-primary">Search</button>
-                                                     <button type="button" class="btn btn-default" name="reset_form" onclick="this.form.reset();" >Clear</button>
+                                                            <div class="d-flex justify-content-end"> 
+                                                             <button type="submit" class="btn btn-primary">Search</button>
+                                                             <button type="button" class="btn btn-default" name="reset_form" onclick="this.form.reset();" >Clear</button>
+                                                            </div>
                                                     </form>
                                                 </div>
                                         </div>
