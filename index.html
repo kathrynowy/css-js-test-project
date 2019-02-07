@@ -1,193 +1,220 @@
 <!DOCTYPE html>
 <html>
-    <head>
-        <meta charset="UTF-8">
-        <title>Task</title>
-        <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/css/bootstrap.min.css" integrity="sha384-GJzZqFGwb1QTTN6wy59ffF1BuGJpLSa9DkKMp0DgiMDm4iYMj70gZWKYbI706tWS" crossorigin="anonymous">
-        <link rel="stylesheet" href="css/main.css">
-    </head>
-    <body>
-        <div class="container">
-            <div class="row">
-                <div class="col-12">
-                    <nav class="navbar navbar-expand-sm fixed-top navbar-dark bg-dark">
-                        <a class="navbar-brand" href="#">TicketsPro</a>
-                        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent">
-                            <span class="navbar-toggler-icon"></span>
-                        </button>
-    
-                        <div class="collapse navbar-collapse" id="navbarSupportedContent">
-                            <ul class="navbar-nav">
-                                <li class="nav-item active">
-                                    <a class="nav-link" href="#">Home</a>
-                                </li>
-                                <li class="nav-item">
-                                    <a class="nav-link" href="#">History</a>
-                                </li>
-                                <li class="nav-item">
-                                    <a class="nav-link " href="#">About us</a>
-                                </li>
-                            </ul>
-                           
-                        </div>
-                    </nav>
-                </div>
-            </div>
-            <div class="row">
-                <div class="col-12">
-                    <div class="row ">
-                        <div class="col-3">
-                            <nav class="nav flex-column nav-pills">
-                                <a class="nav-item nav-link active" id="nav-flights" data-toggle="tab" aria-controls="tab-flights" href="#tab-flights">Flights</a>
-                                <a class="nav-item nav-link" id="nav-hotels" data-toggle="tab" aria-controls="tab-hotels" href="#tab-hotels">Hotels</a>
-                                <a class="nav-item nav-link" id="nav-cars" data-toggle="tab" aria-controls="tab-cars" href="#tab-cars">Cars</a>
-                            </nav>
-                        </div>
-                        <div class="col-9">
-                            <div class="tab-content">
-                                <div class="tab-pane fade active show" id="tab-flights" aria-labelledby="nav-flights">
-                                     <div class="row">
-                                         <div class="col">
-                                                <form modal-body>
-                                                        <div class="form-row ">
-                                                          <div class="form-group col-md-6">
-                                                            <label for="input-startdate-flights">Start Date</label>
-                                                            <input type="date"  class="form-control form-control-sm" id="input-startdate-flights" class="dateStartInput" placeholder="mm/dd/yyyy" required>
-                                                            </div>
-                                                          <div class="form-group col-md-6">
-                                                            <label for="input-enddate-flights">End Date</label>
-                                                            <input type="date" class="form-control form-control-sm" id="input-enddate-flights" class="dateEndInput" placeholder="mm/dd/yyyy" required>
-                                                            <span class="validity"></span>
-                                                          </div>
-                                                        </div>
-                                                        <div class="form-group">
-                                                          <label for="input-from-flights">From</label>
-                                                          <input type="text" class="form-control form-control-sm" id="input-from-flights" placeholder="Minsk">
-                                                        </div>
-                                                        <div class="form-group">
-                                                          <label for="input-to-flights">To</label>
-                                                          <input type="text" class="form-control form-control-sm" id="input-to-flights" placeholder="Moscow">
-                                                        </div> 
-                                                      <div class="d-flex justify-content-end"> 
-                                                        <button type="submit" class="btn btn-primary">Search</button>
-                                                        <button type="button" class="btn btn-default" name="reset_form" onclick="this.form.reset();" >Clear</button>
-                                                      </div>
-                                              </form>
-                                            </div>
-                                         </div>
-                                     </div>
-                                <div class="tab-pane fade" id="tab-hotels" aria-labelledby="nav-hotels"> 
-                                        <div class="row">
-                                                <div class="col">
-                                                       <form id="hotelsSub">
-                                                               <div class="form-row ">
-                                                                 <div class="form-group col-md-6">
-                                                                   <label for="input-startdate-hotels">Start Date</label>
-                                                                   <input type="date" class="form-control form-control-sm" id="input-startdate-hotels" placeholder="mm/dd/yyyy" required>
-                                                                    </div>
-                                                                 <div class="form-group col-md-6">
-                                                                       <label for="input-enddate-hotels">End Date</label>
-                                                                       <input type="date" class="form-control form-control-sm" id="input-enddate-hotels" placeholder="mm/dd/yyyy" required>
-                                                                       <span class="validity"></span>
-                                                                  </div>
-                                                               </div>
-                                                               <div class="form-group">
-                                                                    <label for="amenities-select-hotels">Amenities</label>
-                                                                    <select class="form-control form-control-sm" id="amenities-select-hotels">
-                                                                      <option>&#9733;</option>
-                                                                      <option>&#9733;&#9733;</option>
-                                                                      <option>&#9733;&#9733;&#9733;</option>
-                                                                      <option>&#9733;&#9733;&#9733;&#9733;</option>
-                                                                      <option>&#9733;&#9733;&#9733;&#9733;&#9733;</option>
-                                                                    </select>
-                                                                  </div>
-                                                                  
-                                                               <div class="form-group">
-                                                                 <label class="mr-sm-2" for="select-country-hotels">Location</label>
-                                                                 <select class="custom-select mr-sm-2 form-control-sm" id="select-country-hotels">
-                                                                   <option selected>Choose country</option>
-                                                                   <option value="1">One</option>
-                                                                   <option value="2">Two</option>
-                                                                   <option value="3">Three</option>
-                                                                 </select> 
-                                                                </div> 
-                                                                <div class="form-group">
-                                                                        <label class="mr-sm-2" for="select-city-hotels">Location</label>
-                                                                        <select class="custom-select mr-sm-2 form-control-sm" id="select-city-hotels">
-                                                                          <option selected>Choose city</option>
-                                                                          <option value="1">One</option>
-                                                                          <option value="2">Two</option>
-                                                                          <option value="3">Three</option>
-                                                                        </select> 
-                                                                       </div> 
-                                                                   <div class="d-flex justify-content-end"> 
-                                                                    <button type="submit" class="btn btn-primary">Search</button>
-                                                                    <button type="button" class="btn btn-default" name="reset_form" onclick="this.form.reset();" >Clear</button>
-                                                                  </div>
-                                                        </form>
-                                                </div>
-                                        </div>
-                                </div>
-                                <div class="tab-pane fade" id="tab-cars" aria-labelledby="nav-cars">
-                                        <div class="row">
-                                                <div class="col">
-                                                       <form modal-body >
-                                                               <div class="form-row ">
-                                                                 <div class="form-group col-md-6 ">
-                                                                   <label for="input-startdate-cars">Start Date</label>
-                                                                   <input type="date" class="form-control form-control-sm" id="input-startdate-cars" placeholder="mm/dd/yyyy" required>
-                                                                   </div>
-                                                                 <div class="form-group col-md-6">
-                                                                       <label for="input-enddate-cars">End Date</label>
-                                                                       <input type="date" class="form-control form-control-sm" id="input-enddate-cars" placeholder="mm/dd/yyyy" required>
-                                                                       <span class="validity"></span> 
-                                                                 </div>
-                                                               </div>
-                                                               <div class="form-group">
-                                                                    <label for="type-cars-select">Type</label>
-                                                                    <select class="form-control" id="type-cars-select">
-                                                                      <option selected value="economy">economy</option>
-                                                                      <option value="business">business</option>
-                                                                      <option value="luxury">luxury</option>
-                                                                    </select>
-                                                                  </div>
-                                                                  
-                                                               <div class="form-group">
-                                                                 <label class="mr-sm-2" for="select-country-cars">Location</label>
-                                                                 <select class="custom-select mr-sm-2 form-control-sm" id="select-country-cars">
-                                                                   <option selected>Choose country</option>
-                                                                   <option value="1">One</option>
-                                                                   <option value="2">Two</option>
-                                                                   <option value="3">Three</option>
-                                                                 </select> 
-                                                                </div> 
-                                                                <div class="form-group">
-                                                                        <label class="mr-sm-2" for="select-city-cars">Location</label>
-                                                                        <select class="custom-select mr-sm-2 form-control-sm" id="select-city-cars">
-                                                                          <option selected>Choose city</option>
-                                                                          <option value="1">One</option>
-                                                                          <option value="2">Two</option>
-                                                                          <option value="3">Three</option>
-                                                                        </select> 
-                                                                </div> 
-                                                            <div class="d-flex justify-content-end"> 
-                                                             <button type="submit" class="btn btn-primary">Search</button>
-                                                             <button type="button" class="btn btn-default" name="reset_form" onclick="this.form.reset();" >Clear</button>
-                                                            </div>
-                                                    </form>
-                                                </div>
-                                        </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
 
-        <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
-        <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.6/umd/popper.min.js" integrity="sha384-wHAiFfRlMFy6i5SRaxvfOCifBUQy1xHdJ/yoi7FRNXMRBu5WHdZYu1hA6ZOblgut" crossorigin="anonymous"></script>
-        <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/js/bootstrap.min.js" integrity="sha384-B0UglyR+jN6CkvvICOB2joaf5I4l3gm9GU6Hc1og6Ls7i6U/mkkaduKaBhlAXv9k" crossorigin="anonymous"></script>
-        <script src="src/js.js"></script>
-    </body>
+<head>
+  <meta charset="UTF-8">
+  <title>Task</title>
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/css/bootstrap.min.css"
+    integrity="sha384-GJzZqFGwb1QTTN6wy59ffF1BuGJpLSa9DkKMp0DgiMDm4iYMj70gZWKYbI706tWS" crossorigin="anonymous">
+  <link rel="stylesheet" href="css/main.css">
+</head>
+
+<body>
+  <div class="container">
+    <div class="row">
+      <div class="col-12">
+        <nav class="navbar navbar-expand-sm fixed-top navbar-dark bg-dark">
+          <a class="navbar-brand" href="#">TicketsPro</a>
+          <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent">
+            <span class="navbar-toggler-icon"></span>
+          </button>
+
+          <div class="collapse navbar-collapse" id="navbarSupportedContent">
+            <ul class="navbar-nav">
+              <li class="nav-item active">
+                <a class="nav-link" href="#">Home</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="#">History</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link " href="#">About us</a>
+              </li>
+            </ul>
+
+          </div>
+        </nav>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-12">
+        <div class="row ">
+          <div class="col-3">
+            <nav class="nav flex-column nav-pills">
+              <a class="nav-item nav-link active" id="nav-flights" data-toggle="tab" aria-controls="tab-flights"
+                href="#tab-flights">Flights</a>
+              <a class="nav-item nav-link" id="nav-hotels" data-toggle="tab" aria-controls="tab-hotels"
+                href="#tab-hotels">Hotels</a>
+              <a class="nav-item nav-link" id="nav-cars" data-toggle="tab" aria-controls="tab-cars"
+                href="#tab-cars">Cars</a>
+            </nav>
+          </div>
+          <div class="col-9">
+            <div class="tab-content">
+              <!-- Flights -->
+              <div class="tab-pane fade active show" id="tab-flights" aria-labelledby="nav-flights">
+                <div class="row">
+                  <div class="col">
+                    <form modal-body>
+                      <div class="form-row ">
+                        <div class="form-group col-md-6">
+                          <label for="input-startdate-flights">Start Date</label>
+                          <input type="date" class="form-control form-control-sm" id="input-startdate-flights"
+                            class="dateStartInput" placeholder="mm/dd/yyyy" required>
+                        </div>
+                        <div class="form-group col-md-6">
+                          <label for="input-enddate-flights">End Date</label>
+                          <input type="date" class="form-control form-control-sm" id="input-enddate-flights"
+                            class="dateEndInput" placeholder="mm/dd/yyyy" required>
+                          <span class="validity"></span>
+                        </div>
+                      </div>
+                      <div class="form-group">
+                        <label for="input-from-flights">From</label>
+                        <input type="text" class="form-control form-control-sm" id="input-from-flights"
+                          placeholder="Minsk">
+                      </div>
+                      <div class="form-group">
+                        <label for="input-to-flights">To</label>
+                        <input type="text" class="form-control form-control-sm" id="input-to-flights"
+                          placeholder="Moscow">
+                      </div>
+                      <div class="d-flex justify-content-end">
+                        <button type="submit" class="btn btn-primary">Search</button>
+                        <button type="button" class="btn btn-default" name="reset_form"
+                          onclick="this.form.reset();">Clear</button>
+                      </div>
+                    </form>
+                  </div>
+                </div>
+              </div>
+              <!-- Hotels -->
+              <div class="tab-pane fade" id="tab-hotels" aria-labelledby="nav-hotels">
+                <div class="row">
+                  <div class="col">
+                    <form id="hotelsSub">
+                      <div class="form-row ">
+                        <div class="form-group col-md-6">
+                          <label for="input-startdate-hotels">Start Date</label>
+                          <input type="date" class="form-control form-control-sm" id="input-startdate-hotels"
+                            placeholder="mm/dd/yyyy" required>
+                        </div>
+                        <div class="form-group col-md-6">
+                          <label for="input-enddate-hotels">End Date</label>
+                          <input type="date" class="form-control form-control-sm" id="input-enddate-hotels"
+                            placeholder="mm/dd/yyyy" required>
+                          <span class="validity"></span>
+                        </div>
+                      </div>
+                      <div class="form-group">
+                        <label for="amenities-select-hotels">Amenities</label>
+                        <select class="form-control form-control-sm" id="amenities-select-hotels">
+                          <option>&#9733;</option>
+                          <option>&#9733;&#9733;</option>
+                          <option>&#9733;&#9733;&#9733;</option>
+                          <option>&#9733;&#9733;&#9733;&#9733;</option>
+                          <option>&#9733;&#9733;&#9733;&#9733;&#9733;</option>
+                        </select>
+                      </div>
+
+                      <div class="form-group">
+                        <label class="mr-sm-2" for="select-country-hotels">Location</label>
+                        <select class="custom-select mr-sm-2 form-control-sm" id="select-country-hotels">
+                          <option selected>Choose country</option>
+                          <option value="1">One</option>
+                          <option value="2">Two</option>
+                          <option value="3">Three</option>
+                        </select>
+                      </div>
+                      <div class="form-group">
+                        <label class="mr-sm-2" for="select-city-hotels">Location</label>
+                        <select class="custom-select mr-sm-2 form-control-sm" id="select-city-hotels">
+                          <option selected>Choose city</option>
+                          <option value="1">One</option>
+                          <option value="2">Two</option>
+                          <option value="3">Three</option>
+                        </select>
+                      </div>
+                      <div class="d-flex justify-content-end">
+                        <button type="submit" class="btn btn-primary">Search</button>
+                        <button type="button" class="btn btn-default" name="reset_form"
+                          onclick="this.form.reset();">Clear</button>
+                      </div>
+                    </form>
+                  </div>
+                </div>
+              </div>
+              <!-- Cars -->
+              <div class="tab-pane fade" id="tab-cars" aria-labelledby="nav-cars">
+                <div class="row">
+                  <div class="col">
+                    <form modal-body>
+                      <div class="form-row ">
+                        <div class="form-group col-md-6 ">
+                          <label for="input-startdate-cars">Start Date</label>
+                          <input type="date" class="form-control form-control-sm" id="input-startdate-cars"
+                            placeholder="mm/dd/yyyy" required>
+                        </div>
+                        <div class="form-group col-md-6">
+                          <label for="input-enddate-cars">End Date</label>
+                          <input type="date" class="form-control form-control-sm" id="input-enddate-cars"
+                            placeholder="mm/dd/yyyy" required>
+                          <span class="validity"></span>
+                        </div>
+                      </div>
+                      <div class="form-group">
+                        <label for="type-cars-select">Type</label>
+                        <select class="form-control" id="type-cars-select">
+                          <option selected value="economy">economy</option>
+                          <option value="business">business</option>
+                          <option value="luxury">luxury</option>
+                        </select>
+                      </div>
+
+                      <div class="form-group">
+                        <label class="mr-sm-2" for="select-country-cars">Location</label>
+                        <select class="custom-select mr-sm-2 form-control-sm" id="select-country-cars">
+                          <option selected>Choose country</option>
+                          <option value="1">One</option>
+                          <option value="2">Two</option>
+                          <option value="3">Three</option>
+                        </select>
+                      </div>
+                      <div class="form-group">
+                        <label class="mr-sm-2" for="select-city-cars">Location</label>
+                        <select class="custom-select mr-sm-2 form-control-sm" id="select-city-cars">
+                          <option selected>Choose city</option>
+                          <option value="1">One</option>
+                          <option value="2">Two</option>
+                          <option value="3">Three</option>
+                        </select>
+                      </div>
+                      <div class="d-flex justify-content-end">
+                        <button type="submit" class="btn btn-primary">Search</button>
+                        <button type="button" class="btn btn-default" name="reset_form"
+                          onclick="this.form.reset();">Clear</button>
+                      </div>
+                    </form>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
+    integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo"
+    crossorigin="anonymous"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.6/umd/popper.min.js"
+    integrity="sha384-wHAiFfRlMFy6i5SRaxvfOCifBUQy1xHdJ/yoi7FRNXMRBu5WHdZYu1hA6ZOblgut"
+    crossorigin="anonymous"></script>
+  <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/js/bootstrap.min.js"
+    integrity="sha384-B0UglyR+jN6CkvvICOB2joaf5I4l3gm9GU6Hc1og6Ls7i6U/mkkaduKaBhlAXv9k"
+    crossorigin="anonymous"></script>
+  <script src="src/js.js"></script>
+</body>
+
 </html>
