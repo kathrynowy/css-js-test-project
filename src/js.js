@@ -5,7 +5,6 @@ document.getElementById('input-startdate-flights').onchange = function () {
     var val = document.getElementById('input-startdate-flights').value;
     var dt = new Date(val).getTime() + 24 * 60 * 60 * 1000;
     document.getElementById('input-enddate-flights').min = new Date(dt).toISOString().split('T')[0];
-
 }
 document.getElementById('input-startdate-hotels').min = new Date().toISOString().split('T')[0];
 
@@ -73,7 +72,6 @@ document.getElementById('select-country-hotels').onchange = function () {
         .catch(function (error) {
             console.log('error', error);
         })
-
 }
 
 function addCities(data) {
@@ -83,7 +81,6 @@ function addCities(data) {
         newOptionCity.innerHTML = data[i].toponymName;
         newOptionCity.value = data[i].toponymName;
         selectCityForHotels.appendChild(newOptionCity);
-
     }
 }
 
@@ -96,14 +93,14 @@ fetch('https://restcountries.eu/rest/v2/all?fields=name;alpha2Code')
         return data;
     })
     .then(function (data) {
-        addCountries(data);
+        addCountriesCars(data);
     })
     .catch(function (error) {
         console.log('error', error);
     })
 
 
-function addCountries(data) {
+function addCountriesCars(data) {
     var selectH = document.getElementById('select-country-cars')
     for (let i = 0; i < data.length; i++) {
         var newOption = document.createElement('option');
@@ -123,21 +120,19 @@ document.getElementById('select-country-cars').onchange = function () {
         })
         .then(function (data) {
             console.log(data);
-            addCities(data.geonames);
+            addCitiesC(data.geonames);
         })
         .catch(function (error) {
             console.log('error', error);
         })
-
 }
 
-function addCities(data) {
+function addCitiesC(data) {
     var selectCityForHotels = document.getElementById('select-city-cars')
     for (let i = 0; i < data.length; i++) {
         var newOptionCity = document.createElement('option');
         newOptionCity.innerHTML = data[i].toponymName;
         newOptionCity.value = data[i].toponymName;
         selectCityForHotels.appendChild(newOptionCity);
-
     }
 }
