@@ -47,20 +47,31 @@ fetch('https://restcountries.eu/rest/v2/all?fields=name;alpha2Code')
         console.log('error', error);
     })
 
-
 function addCountries(data) {
-    var selectH = document.getElementById('select-country-hotels')
+    var selectHotels = document.getElementById('select-country-hotels');
+    var selectCars = document.getElementById('select-country-cars');
     for (let i = 0; i < data.length; i++) {
         var newOption = document.createElement('option');
         newOption.innerHTML = data[i].name;
         newOption.value = data[i].alpha2Code;
-        selectH.appendChild(newOption);
+        selectHotels.appendChild(newOption.cloneNode(true));
+        selectCars.appendChild(newOption);
     }
 }
 
-document.getElementById('select-country-hotels').onchange = function () {
-    var znach = document.getElementById('select-country-hotels').value;
-    fetch(`http://api.geonames.org/searchJSON?country=${znach}&username=kathrynowy`)
+function afterChangeCountrySelect(event) {
+    var mas = event.target.id;
+    alert(event.type, event.target);
+    var value = event.target.value;
+    var selectHotel = document.getElementById('select-city-cars');
+    while (selectHotel.firstChild) {
+        selectHotel.removeChild(selectHotel.firstChild);
+    }
+    var option = document.createElement('option');
+    option.innerHTML = 'choose city';
+    option.value = 'default';
+    selectHotel.appendChild(option);
+    fetch(`http://api.geonames.org/searchJSON?country=${value}&username=kathrynowy`)
         .then(status)
         .then(json)
         .then(function (data) {
@@ -74,6 +85,45 @@ document.getElementById('select-country-hotels').onchange = function () {
         })
 }
 
+document.getElementById('select-country-hotels').addEventListener('change', function () { afterChangeCountrySelect(event); });
+document.getElementById('select-country-cars').addEventListener('change', function () { afterChangeCountrySelect(event); });
+
+/* document.getElementById('select-country-hotels').onchange = function () {
+    var value = document.getElementById('select-country-hotels').value;
+    var selectHotel = document.getElementById('select-city-hotels');
+    while (selectHotel.firstChild) {
+        selectHotel.removeChild(selectHotel.firstChild);
+    }
+    var option = document.createElement('option');
+    option.innerHTML = 'choose city';
+    option.value = 'default';
+    selectHotel.appendChild(option);//stop
+    fetch(`http://api.geonames.org/searchJSON?country=${value}&username=kathrynowy`)
+        .then(status)
+        .then(json)
+        .then(function (data) {
+            return data;
+        })
+        .then(function (data) {
+            addCities(data.geonames);
+        })
+        .catch(function (error) {
+            console.log('error', error);
+        })
+} */
+//up
+/* 
+var value = document.getElementById('select-country-hotels').value;
+    if (value = 'defolt') {
+        var parentSelect = document.getElementById('select-city-hotels');
+        alert(parentSelect);
+        alert(parentSelect.childNodes[0].innerHTML);
+        for (let i = 1; i < parentSelect.childNodes.length; i++) {
+            parentSelect.removeChild(parentSelect.childNodes[i]);
+        }
+    }
+ */
+
 function addCities(data) {
     var selectCityForHotels = document.getElementById('select-city-hotels')
     for (let i = 0; i < data.length; i++) {
@@ -86,7 +136,7 @@ function addCities(data) {
 
 //cars
 
-fetch('https://restcountries.eu/rest/v2/all?fields=name;alpha2Code')
+/* fetch('https://restcountries.eu/rest/v2/all?fields=name;alpha2Code')
     .then(status)
     .then(json)
     .then(function (data) {
@@ -101,18 +151,18 @@ fetch('https://restcountries.eu/rest/v2/all?fields=name;alpha2Code')
 
 
 function addCountriesCars(data) {
-    var selectH = document.getElementById('select-country-cars')
+    var selectHotels = document.getElementById('select-country-cars')
     for (let i = 0; i < data.length; i++) {
         var newOption = document.createElement('option');
         newOption.innerHTML = data[i].name;
         newOption.value = data[i].alpha2Code;
-        selectH.appendChild(newOption);
+        selectHotels.appendChild(newOption);
     }
 }
 
 document.getElementById('select-country-cars').onchange = function () {
-    var znach = document.getElementById('select-country-cars').value;
-    fetch(`http://api.geonames.org/searchJSON?country=${znach}&username=kathrynowy`)
+    value = document.getElementById('select-country-cars').value;
+    fetch(`http://api.geonames.org/searchJSON?country=${value}&username=kathrynowy`)
         .then(status)
         .then(json)
         .then(function (data) {
@@ -136,3 +186,4 @@ function addCitiesC(data) {
         selectCityForHotels.appendChild(newOptionCity);
     }
 }
+ */
