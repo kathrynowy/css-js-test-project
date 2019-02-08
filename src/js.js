@@ -24,7 +24,6 @@ document.getElementById('input-startdate-cars').onchange = function () {
     document.getElementById('input-enddate-cars').min = new Date(dt).toISOString().split('T')[0];
 }
 
-
 function requestsProcessing(func, ...value) {
     var status = function (response) {
         if (response.status !== 200) {
@@ -68,9 +67,6 @@ function addCountries(data) {
 }
 
 function onChangeCountry(event) {
-    /* var mas = event.target.id; */
-    var value = event.target.value;
-    /* var objChange = mas.split('-'); */
     var objChange = (event.target.id).split('-');
     var obj = (objChange[2]);
     var selectHotel = document.getElementById('select-city-' + obj);
@@ -81,7 +77,7 @@ function onChangeCountry(event) {
     option.innerHTML = 'choose city';
     option.value = 'default';
     selectHotel.appendChild(option);
-    requestsProcessing(requestCities, value, obj);
+    requestsProcessing(requestCities, event.target.value, obj);
 }
 
 function requestCities(status, json, ...value) {
