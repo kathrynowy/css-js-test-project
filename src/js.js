@@ -1,3 +1,7 @@
+document.getElementById
+
+
+
 document.getElementById('input-startdate-flights').min = new Date().toISOString().split('T')[0];
 
 document.getElementById('input-startdate-flights').onchange = function () {
@@ -24,7 +28,8 @@ document.getElementById('input-startdate-cars').onchange = function () {
     document.getElementById('input-enddate-cars').min = new Date(dt).toISOString().split('T')[0];
 }
 
-function requestsProcessing(func, ...value) {
+
+/* function requestsProcessing(func, ...value) {
     var status = function (response) {
         if (response.status !== 200) {
             return Promise.reject(new Error(response.statusText))
@@ -34,24 +39,65 @@ function requestsProcessing(func, ...value) {
     var json = function (response) {
         return response.json()
     }
-    func(status, json, ...value);
-}
+    func(status, json, ...value).then(function (data) { addCountries(data); });
+} */
 
-requestsProcessing(requestCountries);
+/* requestsProcessing(requestCountries); */
 
-function requestCountries(status, json) {
-    fetch('https://restcountries.eu/rest/v2/all?fields=name;alpha2Code')
+function request(url) {
+    var status = function (response) {
+        if (response.status !== 200) {
+            return Promise.reject(new Error(response.statusText))
+        }
+        return Promise.resolve(response)
+    }
+    var json = function (response) {
+        return response.json()
+    }
+    return fetch(url)
         .then(status)
         .then(json)
-        .then(function (data) {
-            return data;
-        })
-        .then(function (data) {
-            addCountries(data);
-        })
         .catch(function (error) {
             console.log('error', error);
         })
+}
+
+requestCountries().then(addCountries);
+function requestCountries() {
+    const url = 'https://restcountries.eu/rest/v2/all?fields=name;alpha2Code';
+    return request(url)
+}
+
+function requestCities(countryId, currentTab) {
+    const url = `http://api.geonames.org/searchJSON?country=${countryId}&username=kathrynowy`;
+    return request(url)
+}
+
+function onChangeCountry(event) {
+    var objChange = (event.target.id).split('-');
+    var currentTab = (objChange[2]);
+    var selectHotel = document.getElementById('select-city-' + currentTab);
+    while (selectHotel.firstChild) {
+        selectHotel.removeChild(selectHotel.firstChild);
+    }
+    var option = document.createElement('option');
+    option.innerHTML = 'choose city';
+    option.value = 'default';
+    selectHotel.appendChild(option);
+    requestCities(event.target.value, currentTab)
+        .then(function (data) {
+            addCities(data.geonames, currentTab)
+        })
+}
+
+function addCities(geoNames, currentTab) {
+    var selectCityForHotels = document.getElementById('select-city-' + currentTab)
+    for (let i = 0; i < geoNames.length; i++) {
+        var newOptionCity = document.createElement('option');
+        newOptionCity.innerHTML = geoNames[i].toponymName;
+        newOptionCity.value = geoNames[i].toponymName;
+        selectCityForHotels.appendChild(newOptionCity);
+    }
 }
 
 function addCountries(data) {
@@ -66,45 +112,6 @@ function addCountries(data) {
     }
 }
 
-function onChangeCountry(event) {
-    var objChange = (event.target.id).split('-');
-    var obj = (objChange[2]);
-    var selectHotel = document.getElementById('select-city-' + obj);
-    while (selectHotel.firstChild) {
-        selectHotel.removeChild(selectHotel.firstChild);
-    }
-    var option = document.createElement('option');
-    option.innerHTML = 'choose city';
-    option.value = 'default';
-    selectHotel.appendChild(option);
-    requestsProcessing(requestCities, event.target.value, obj);
-}
-
-function requestCities(status, json, ...value) {
-    var valueM = value[0];
-    fetch(`http://api.geonames.org/searchJSON?country=${valueM}&username=kathrynowy`)
-        .then(status)
-        .then(json)
-        .then(function (data) {
-            return data;
-        })
-        .then(function (data) {
-            addCities(data.geonames, value[1]);
-        })
-        .catch(function (error) {
-            console.log('error', error);
-        })
-}
-
-function addCities(data, value) {
-    var selectCityForHotels = document.getElementById('select-city-' + value)
-    for (let i = 0; i < data.length; i++) {
-        var newOptionCity = document.createElement('option');
-        newOptionCity.innerHTML = data[i].toponymName;
-        newOptionCity.value = data[i].toponymName;
-        selectCityForHotels.appendChild(newOptionCity);
-    }
-}
 
 document.getElementById('select-country-hotels').addEventListener('change', function () { onChangeCountry(event); });
 document.getElementById('select-country-cars').addEventListener('change', function () { onChangeCountry(event); });
