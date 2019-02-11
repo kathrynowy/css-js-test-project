@@ -1,12 +1,14 @@
 var path = require('path');
 
 module.exports = {
-  entry: './src/home.js',
+  entry: {
+    home: './src/home.js',
+    storage: './src/storage.js'
+  },
   output: {
-    filename: 'bundle.js',
+    filename: '[name].js',
     path: path.resolve(__dirname, 'dist'),
   },
-  watch: true,
   module: {
     rules: [
       {
@@ -14,9 +16,6 @@ module.exports = {
         exclude: /(node_modules|bower_components)/,
         use: {
           loader: 'babel-loader',
-          options: {
-            presets: ["env"],
-          },
         },
       },
     ]

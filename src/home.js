@@ -1,4 +1,4 @@
-import { request, requestCountries, requestCities } from './service.js';
+import { requestCountries, requestCities } from './service.js';
 
 requestCountries().then(addCountries);
 
@@ -68,8 +68,6 @@ for (let i = 0; i < forms.length; i++) {
     localStorage.setItem('key', JSON.stringify(arrHistory));
   });
 }
-
-
 
 document.getElementById('input-startdate-flights').min = new Date().toISOString().split('T')[0];
 

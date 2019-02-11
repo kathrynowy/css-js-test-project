@@ -1,4 +1,4 @@
-export { request, requestCountries, requestCities };
+export { requestCountries, requestCities };
 function request(url) {
   var status = function (response) {
     if (response.status !== 200) {
