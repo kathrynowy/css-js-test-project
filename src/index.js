@@ -1,30 +1,9 @@
-document.getElementById('input-startdate-flights').min = new Date().toISOString().split('T')[0];
 
-document.getElementById('input-startdate-flights').onchange = function () {
-    document.getElementById('input-enddate-flights').disabled = false;
-    var val = document.getElementById('input-startdate-flights').value;
-    var dt = new Date(val).getTime() + 24 * 60 * 60 * 1000;
-    document.getElementById('input-enddate-flights').min = new Date(dt).toISOString().split('T')[0];
-}
-document.getElementById('input-startdate-hotels').min = new Date().toISOString().split('T')[0];
 
-document.getElementById('input-startdate-hotels').onchange = function () {
-    document.getElementById('input-enddate-hotels').disabled = false;
-    var val = document.getElementById('input-startdate-hotels').value;
-    var dt = new Date(val).getTime() + 24 * 60 * 60 * 1000;
-    document.getElementById('input-enddate-hotels').min = new Date(dt).toISOString().split('T')[0];
-}
 
-document.getElementById('input-startdate-cars').min = new Date().toISOString().split('T')[0];
 
-document.getElementById('input-startdate-cars').onchange = function () {
-    document.getElementById('input-enddate-cars').disabled = false;
-    var val = document.getElementById('input-startdate-cars').value;
-    var dt = new Date(val).getTime() + 24 * 60 * 60 * 1000;
-    document.getElementById('input-enddate-cars').min = new Date(dt).toISOString().split('T')[0];
-}
 
-function request(url) {
+/* function request(url) {
     var status = function (response) {
         if (response.status !== 200) {
             return Promise.reject(new Error(response.statusText))
@@ -41,19 +20,20 @@ function request(url) {
             console.log('error', error);
         })
 }
+ */
+/* requestCountries().then(addCountries); */
 
-requestCountries().then(addCountries);
-function requestCountries() {
+/* function requestCountries() {
     const url = 'https://restcountries.eu/rest/v2/all?fields=name;alpha2Code';
     return request(url)
 }
-
-function requestCities(countryId) {
+ */
+/* function requestCities(countryId) {
     const url = `http://api.geonames.org/searchJSON?country=${countryId}&username=kathrynowy`;
     return request(url)
-}
+} */
 
-function onChangeCountry(event) {
+/* function onChangeCountry(event) {
     var objChange = (event.target.id).split('-');
     var currentTab = (objChange[2]);
     var selectHotel = document.getElementById('select-city-' + currentTab);
@@ -102,18 +82,18 @@ for (let i = 0; i < forms.length; i++) {
     forms[i].elements[1].addEventListener('change', function () {
         forms[i].getElementsByClassName('search')[0].disabled = false;
     });
-}
+} */
 /* var key = 'key'; */
-
+/*
 Object.prototype.toString = function () {
     var str = '';
     for (let key in this) {
         str += this[key] + ' ';
     }
     return str;
-};
+}; */
 
-var arrHistory = JSON.parse(localStorage.getItem('key')) || [];
+/* var arrHistory = JSON.parse(localStorage.getItem('key')) || [];
 for (let i = 0; i < forms.length; i++) {
     forms[i].addEventListener('submit', function () {
         arrHistory = JSON.parse(localStorage.getItem('key')) || [];
@@ -127,12 +107,40 @@ for (let i = 0; i < forms.length; i++) {
         localStorage.setItem('key', JSON.stringify(arrHistory));
     });
 }
+ */
 
-
-var ul = document.getElementById('for-history');
+/* var ul = document.getElementById('for-history');
 for (let i = 0; i < arrHistory.length; i++) {
     let li = document.createElement('li');
-    li.innerHTML = arrHistory[i];
+    var srtToLi = '';
+    var options = {
+        year: 'numeric',
+        month: 'long',
+        day: 'numeric',
+    };
+
+    if (arrHistory[i].type == 'plane') {
+        var endDate = new Date(arrHistory[i]['input-enddate-flights']);
+        var startDate = new Date(arrHistory[i]['input-startdate-flights']);
+        strToLi = historyToString(startDate, endDate) + ', ' + arrHistory[i]['input-from-flights'] + ',  ' + arrHistory[i]['input-to-flights'];
+    }
+    if (arrHistory[i].type == 'bed') {
+        var endDate = new Date(arrHistory[i]['input-enddate-hotels']);
+        var startDate = new Date(arrHistory[i]['input-startdate-hotels']);
+        strToLi = historyToString(startDate, endDate) + ', ' + arrHistory[i]['amenities-select-hotels'] + ',  ' + arrHistory[i]['select-country-hotels'] + ',  ' + arrHistory[i]['select-city-hotels'];
+    }
+    if (arrHistory[i].type == 'car') {
+        var endDate = new Date(arrHistory[i]['input-enddate-cars']);
+        var startDate = new Date(arrHistory[i]['input-startdate-cars']);
+        strToLi = historyToString(startDate, endDate) + ', ' + arrHistory[i]['type-cars-select'] + ',  ' + arrHistory[i]['select-country-cars'] + ',  ' + arrHistory[i]['select-city-cars'];
+    }
+
+    function historyToString(startDate, endDate) {
+        return startDate.toLocaleString("en-US", options) + ' - ' + endDate.toLocaleString("en-US", options);
+    }
+
+    li.innerHTML = strToLi;
     li.className = 'list-group-item';
     ul.appendChild(li);
 }
+ */
