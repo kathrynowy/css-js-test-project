@@ -91,21 +91,48 @@ function addCountries(data) {
         selectCars.appendChild(newOption);
     }
 }
-var arrHistory = [];
+
+var forms = document.getElementsByClassName('for-history');
+
 document.getElementById('select-country-hotels').addEventListener('change', function () { onChangeCountry(event); });
 document.getElementById('select-country-cars').addEventListener('change', function () { onChangeCountry(event); });
-var keyForHistory = 'key';
-document.getElementById('hotelsSub').addEventListener('submit', function () {
-    var count = document.getElementById('hotelsSub').elements.length - 2;
-    var paste = document.getElementById('paste');
-    var objectWithData = {};
-    for (let i = 0; i < count; i++) {
-        var value = document.getElementById('hotelsSub').elements[i].value;
-        var id = document.getElementById('hotelsSub').elements[i].id;
-        if (value != 0 && value != undefined && value != null) {
-            objectWithData[id] = value;
-        }
+
+for (let i = 0; i < forms.length; i++) {
+    var length = forms[i].elements.length;
+    forms[i].elements[1].addEventListener('change', function () {
+        forms[i].getElementsByClassName('search')[0].disabled = false;
+    });
+}
+/* var key = 'key'; */
+
+Object.prototype.toString = function () {
+    var str = '';
+    for (let key in this) {
+        str += this[key] + ' ';
     }
-    arrHistory.push(JSON.stringify(objectWithData));
-    localStorage.setItem(keyForHistory, arrHistory);
-})
+    return str;
+};
+
+var arrHistory = JSON.parse(localStorage.getItem('key')) || [];
+for (let i = 0; i < forms.length; i++) {
+    forms[i].addEventListener('submit', function () {
+        arrHistory = JSON.parse(localStorage.getItem('key')) || [];
+        let length = forms[i].elements.length - 2;
+        var obj = {};
+        obj.type = forms[i].id;
+        for (let j = 0; j < length; j++) {
+            obj[forms[i].elements[j].id] = forms[i].elements[j].value;
+        }
+        arrHistory.push(obj);
+        localStorage.setItem('key', JSON.stringify(arrHistory));
+    });
+}
+
+
+var ul = document.getElementById('for-history');
+for (let i = 0; i < arrHistory.length; i++) {
+    let li = document.createElement('li');
+    li.innerHTML = arrHistory[i];
+    li.className = 'list-group-item';
+    ul.appendChild(li);
+}
