@@ -65,8 +65,7 @@
                         <div class="form-group col-md-6">
                           <label for="input-enddate-flights">End Date</label>
                           <input type="date" class="form-control form-control-sm" id="input-enddate-flights"
-                            class="dateEndInput" placeholder="mm/dd/yyyy" required>
-                          <span class="validity"></span>
+                            class="dateEndInput" placeholder="mm/dd/yyyy" required disabled>
                         </div>
                       </div>
                       <div class="form-group">
@@ -102,13 +101,12 @@
                         <div class="form-group col-md-6">
                           <label for="input-enddate-hotels">End Date</label>
                           <input type="date" class="form-control form-control-sm" id="input-enddate-hotels"
-                            placeholder="mm/dd/yyyy" required>
-                          <span class="validity"></span>
+                            placeholder="mm/dd/yyyy" required disabled>
                         </div>
                       </div>
                       <div class="form-group">
                         <label for="amenities-select-hotels">Amenities</label>
-                        <select class="form-control form-control-sm" id="amenities-select-hotels">
+                        <select class="form-control form-control-sm" id="amenities-select-hotels" required>
                           <option>&#9733;</option>
                           <option>&#9733;&#9733;</option>
                           <option>&#9733;&#9733;&#9733;</option>
@@ -119,24 +117,18 @@
 
                       <div class="form-group">
                         <label class="mr-sm-2" for="select-country-hotels">Location</label>
-                        <select class="custom-select mr-sm-2 form-control-sm" id="select-country-hotels">
-                          <option selected>Choose country</option>
-                          <option value="1">One</option>
-                          <option value="2">Two</option>
-                          <option value="3">Three</option>
+                        <select class="custom-select mr-sm-2 form-control-sm" id="select-country-hotels" required>
+                          <option selected value="default">Choose country</option>
                         </select>
                       </div>
                       <div class="form-group">
                         <label class="mr-sm-2" for="select-city-hotels">Location</label>
-                        <select class="custom-select mr-sm-2 form-control-sm" id="select-city-hotels">
-                          <option selected>Choose city</option>
-                          <option value="1">One</option>
-                          <option value="2">Two</option>
-                          <option value="3">Three</option>
+                        <select class="custom-select mr-sm-2 form-control-sm" id="select-city-hotels" required>
+                          <option selected value="default">Choose city</option>
                         </select>
                       </div>
                       <div class="d-flex justify-content-end">
-                        <button type="submit" class="btn btn-primary">Search</button>
+                        <button type="submit" id="searchbtn" class="btn btn-primary">Search</button>
                         <button type="button" class="btn btn-default" name="reset_form"
                           onclick="this.form.reset();">Clear</button>
                       </div>
@@ -158,8 +150,7 @@
                         <div class="form-group col-md-6">
                           <label for="input-enddate-cars">End Date</label>
                           <input type="date" class="form-control form-control-sm" id="input-enddate-cars"
-                            placeholder="mm/dd/yyyy" required>
-                          <span class="validity"></span>
+                            placeholder="mm/dd/yyyy" required disabled>
                         </div>
                       </div>
                       <div class="form-group">
@@ -175,18 +166,12 @@
                         <label class="mr-sm-2" for="select-country-cars">Location</label>
                         <select class="custom-select mr-sm-2 form-control-sm" id="select-country-cars">
                           <option selected>Choose country</option>
-                          <option value="1">One</option>
-                          <option value="2">Two</option>
-                          <option value="3">Three</option>
                         </select>
                       </div>
                       <div class="form-group">
                         <label class="mr-sm-2" for="select-city-cars">Location</label>
                         <select class="custom-select mr-sm-2 form-control-sm" id="select-city-cars">
                           <option selected>Choose city</option>
-                          <option value="1">One</option>
-                          <option value="2">Two</option>
-                          <option value="3">Three</option>
                         </select>
                       </div>
                       <div class="d-flex justify-content-end">
