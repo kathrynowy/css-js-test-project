@@ -1,4 +1,4 @@
-export default checkType;
+export { checkType };
 
 function isPlane(arrHistory, i) {
   var endDate = new Date(arrHistory[i]['input-enddate-flights']);

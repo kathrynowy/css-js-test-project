@@ -1,4 +1,7 @@
+require('./scss/home.scss');
+
 import { requestCountries, requestCities } from './service.js';
+
 
 requestCountries().then(addCountries);
 
@@ -43,6 +46,7 @@ function addCountries(data) {
     selectCars.appendChild(newOption);
   }
 }
+
 var forms = document.getElementsByClassName('for-history');
 
 document.getElementById('select-country-hotels').addEventListener('change', function () { onChangeCountry(event); });
@@ -55,6 +59,7 @@ for (let i = 0; i < forms.length; i++) {
 }
 
 var arrHistory = JSON.parse(localStorage.getItem('key')) || [];
+
 for (let i = 0; i < forms.length; i++) {
   forms[i].addEventListener('submit', function () {
     arrHistory = JSON.parse(localStorage.getItem('key')) || [];
