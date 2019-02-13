@@ -25,7 +25,7 @@
                 <a class="nav-link" href="#">Home</a>
               </li>
               <li class="nav-item">
-                <a class="nav-link" href="#">History</a>
+                <a class="nav-link" href="history.html">History</a>
               </li>
               <li class="nav-item">
                 <a class="nav-link " href="#">About us</a>
@@ -55,7 +55,7 @@
               <div class="tab-pane fade active show" id="tab-flights" aria-labelledby="nav-flights">
                 <div class="row">
                   <div class="col">
-                    <form modal-body>
+                    <form id="plane" class="for-history">
                       <div class="form-row ">
                         <div class="form-group col-md-6">
                           <label for="input-startdate-flights">Start Date</label>
@@ -64,22 +64,23 @@
                         </div>
                         <div class="form-group col-md-6">
                           <label for="input-enddate-flights">End Date</label>
-                          <input type="date" class="form-control form-control-sm" id="input-enddate-flights"
+                          <input type="date" class="form-control form-control-sm end-date" id="input-enddate-flights"
                             class="dateEndInput" placeholder="mm/dd/yyyy" required disabled>
                         </div>
                       </div>
                       <div class="form-group">
                         <label for="input-from-flights">From</label>
                         <input type="text" class="form-control form-control-sm" id="input-from-flights"
-                          placeholder="Minsk">
+                          placeholder="Minsk" required>
                       </div>
                       <div class="form-group">
                         <label for="input-to-flights">To</label>
                         <input type="text" class="form-control form-control-sm" id="input-to-flights"
-                          placeholder="Moscow">
+                          placeholder="Moscow" required>
                       </div>
                       <div class="d-flex justify-content-end">
-                        <button type="submit" class="btn btn-primary">Search</button>
+                        <button type="submit" class="btn btn-primary search" id="search-flights"
+                          disabled>Search</button>
                         <button type="button" class="btn btn-default" name="reset_form"
                           onclick="this.form.reset();">Clear</button>
                       </div>
@@ -91,7 +92,7 @@
               <div class="tab-pane fade" id="tab-hotels" aria-labelledby="nav-hotels">
                 <div class="row">
                   <div class="col">
-                    <form id="hotelsSub">
+                    <form id="bed" class="for-history">
                       <div class="form-row ">
                         <div class="form-group col-md-6">
                           <label for="input-startdate-hotels">Start Date</label>
@@ -100,7 +101,7 @@
                         </div>
                         <div class="form-group col-md-6">
                           <label for="input-enddate-hotels">End Date</label>
-                          <input type="date" class="form-control form-control-sm" id="input-enddate-hotels"
+                          <input type="date" class="form-control form-control-sm end-date" id="input-enddate-hotels"
                             placeholder="mm/dd/yyyy" required disabled>
                         </div>
                       </div>
@@ -128,7 +129,7 @@
                         </select>
                       </div>
                       <div class="d-flex justify-content-end">
-                        <button type="submit" id="searchbtn" class="btn btn-primary">Search</button>
+                        <button type="submit" id="search-hotels" class="btn btn-primary search" disabled>Search</button>
                         <button type="button" class="btn btn-default" name="reset_form"
                           onclick="this.form.reset();">Clear</button>
                       </div>
@@ -140,7 +141,7 @@
               <div class="tab-pane fade" id="tab-cars" aria-labelledby="nav-cars">
                 <div class="row">
                   <div class="col">
-                    <form modal-body>
+                    <form class="for-history" id="car">
                       <div class="form-row ">
                         <div class="form-group col-md-6 ">
                           <label for="input-startdate-cars">Start Date</label>
@@ -149,7 +150,7 @@
                         </div>
                         <div class="form-group col-md-6">
                           <label for="input-enddate-cars">End Date</label>
-                          <input type="date" class="form-control form-control-sm" id="input-enddate-cars"
+                          <input type="date" class="form-control form-control-sm end-date" id="input-enddate-cars"
                             placeholder="mm/dd/yyyy" required disabled>
                         </div>
                       </div>
@@ -175,7 +176,7 @@
                         </select>
                       </div>
                       <div class="d-flex justify-content-end">
-                        <button type="submit" class="btn btn-primary">Search</button>
+                        <button type="submit" class="btn btn-primary search" id="search-cars" disabled>Search</button>
                         <button type="button" class="btn btn-default" name="reset_form"
                           onclick="this.form.reset();">Clear</button>
                       </div>
@@ -188,6 +189,7 @@
         </div>
       </div>
     </div>
+
   </div>
 
   <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
@@ -199,7 +201,7 @@
   <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/js/bootstrap.min.js"
     integrity="sha384-B0UglyR+jN6CkvvICOB2joaf5I4l3gm9GU6Hc1og6Ls7i6U/mkkaduKaBhlAXv9k"
     crossorigin="anonymous"></script>
-  <script src="src/js.js"></script>
+  <script src="dist/home.js"></script>
 </body>
 
 </html>
