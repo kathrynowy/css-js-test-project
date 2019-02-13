@@ -3,6 +3,8 @@ import "bootstrap/js/dist/tab";
 import "bootstrap/js/dist/collapse";
 import { checkType, getHistory } from './storage.js'
 
+
+const PAGE_SIZE = 5;
 let historyList = getHistory();
 let ulPagination = document.getElementById('pages');
 let ul = document.getElementById('for-history');
@@ -22,7 +24,7 @@ function deleteHistory() {
 
 function drawHistoryButtons() {
   deleteHistoryButtons();
-  let countPages = (historyList.length % 5 != 0) ? (Math.trunc(historyList.length / 5) + 1) : Math.trunc(historyList.length / 5);
+  let countPages = (historyList.length % PAGE_SIZE != 0) ? (Math.trunc(historyList.length / PAGE_SIZE) + 1) : Math.trunc(historyList.length / PAGE_SIZE);
   for (let i = 0; i < countPages; i++) {
     let li = document.createElement('li');
     li.setAttribute('class', 'page-item');
@@ -43,7 +45,7 @@ for (let i = 0; i < pageLinks.length; i++) {
 }
 
 function addHistoryElements(count, historyList) {
-  for (let i = count * 5 - 5; i < count * 5; i++) {
+  for (let i = count * PAGE_SIZE - 5; i < count * PAGE_SIZE; i++) {
     if (historyList[i] != undefined) {
       let li = document.createElement('li');
       var str = `<i class="fas fa-${historyList[i].type}"></i>  `;
