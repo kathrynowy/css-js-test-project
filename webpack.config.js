@@ -1,10 +1,12 @@
 const path = require('path');
 const ExtractTextPlugin = require("extract-text-webpack-plugin");
+const HtmlWebpackPlugin = require('html-webpack-plugin');
+const CopyWebpackPlugin = require('copy-webpack-plugin');
 
 module.exports = {
   entry: {
-    home: './src/home.js',
-    storage: './src/storage.js'
+    search: './src/search.js',
+    history: './src/history.js'
   },
   mode: 'development',
   output: {
@@ -41,6 +43,20 @@ module.exports = {
     ]
   },
   plugins: [
-    new ExtractTextPlugin('[name].css')
+    new ExtractTextPlugin('[name].css'),
+    new HtmlWebpackPlugin({
+      hash: true,
+      filename: 'index.html',
+      template: 'search.html',
+      chunks: ['search']
+    }),
+    new HtmlWebpackPlugin({
+      filename: 'history.html',
+      template: 'history.html',
+      chunks: ['history']
+    }),
+    new CopyWebpackPlugin([
+      { from: 'src/img', to: './src/img' }
+    ])
   ]
 };

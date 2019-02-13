@@ -1,33 +1,56 @@
-require('./scss/history.scss');
+export { checkType, getHistory, saveItem };
 
-import { checkType } from './history.js'
-var arrHistory = JSON.parse(localStorage.getItem('key')) || [];
-var ul = document.getElementById('for-history');
-for (let i = 0; i < arrHistory.length; i++) {
-  let li = document.createElement('li');
-  var str = checkType(arrHistory, i);
-
-  li.innerHTML = str;
-  li.className = 'list-group-item';
-  li.id = i;
-  ul.appendChild(li);
-  let btn = document.createElement('button');
-  btn.type = 'button';
-  btn.id = i;
-  btn.innerHTML = "Х";
-  btn.className = "close";
-  li.appendChild(btn);
+function getHistory() {
+  return JSON.parse(localStorage.getItem('key')) || [];
 }
 
-var closeBtns = document.getElementsByClassName('close');
-for (let i = 0; i < closeBtns.length; i++) {
-  closeBtns[i].addEventListener('click', function () {
-    closeBtns[i].parentNode.parentNode.removeChild(closeBtns[i].parentNode);
-    arrHistory.splice(i, 1);
-    localStorage.setItem('key', JSON.stringify(arrHistory));
-  })
+function setLocalStorage(historyList) {
+  localStorage.setItem('key', JSON.stringify(historyList));
 }
 
+function saveItem(form) {
+  let historyList = getHistory();
+  let length = form.elements.length - 2;
+  var obj = {};
+  obj.type = form.id;
+  obj.id = Math.random();
+  for (let j = 0; j < length; j++) {
+    obj[form.elements[j].id] = form.elements[j].value;
+  }
+  historyList.push(obj);
+  setLocalStorage(historyList);
+}
+function formatPlane(historyList) {
+  var endDate = new Date(historyList['input-enddate-flights']);
+  var startDate = new Date(historyList['input-startdate-flights']);
+  return historyToString(startDate, endDate) + ', ' + historyList['input-from-flights'] + ',  ' + historyList['input-to-flights'];
+}
+function formatBed(historyList) {
+  var endDate = new Date(historyList['input-enddate-hotels']);
+  var startDate = new Date(historyList['input-startdate-hotels']);
+  return historyToString(startDate, endDate) + ', ' + historyList['amenities-select-hotels'] + ',  ' + historyList['select-country-hotels'] + ',  ' + historyList['select-city-hotels'];
+}
+function formatCar(historyList) {
+  var endDate = new Date(historyList['input-enddate-cars']);
+  var startDate = new Date(historyList['input-startdate-cars']);
+  return historyToString(startDate, endDate) + ', ' + historyList['type-cars-select'] + ',  ' + historyList['select-country-cars'] + ',  ' + historyList['select-city-cars'];
+}
+
+function checkType(historyList) {
+  let str = '';
+  if (historyList.type == 'plane') str = formatPlane(historyList);
+  if (historyList.type == 'bed') str = formatBed(historyList);
+  if (historyList.type == 'car') str = formatCar(historyList);
+  return str;
+}
+function historyToString(startDate, endDate) {
+  const options = {
+    year: 'numeric',
+    month: 'long',
+    day: 'numeric',
+  };
+  return startDate.toLocaleString("en-US", options) + ' - ' + endDate.toLocaleString("en-US", options);
+}
 
 
 

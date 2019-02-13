@@ -1,11 +1,9 @@
 @import "~bootstrap/scss/bootstrap";
+
 body {
-  margin-top: 80px;
+  margin-top: 90px;
 }
 
-btn.close {
-  float: right;
-}
 .navbar-custom {
   background: #0c7b86;
 }
@@ -13,7 +11,11 @@ btn.close {
 .navbar-toggle .icon-bar {
   background: #fff;
 }
-
+.navbar-brand {
+  img {
+    height: 50px;
+  }
+}
 .navbar-custom {
   a {
   color: #fff;
@@ -24,8 +26,7 @@ btn.close {
   display: block;
   width: 50px;
 }
-a.navbar-brand {
-  background-image: url('src/img/plane.jpg');
-  background-size: 80px;
-  background-repeat: no-repeat;
+
+.navbar {
+  background-color: #fde9eb;
 }

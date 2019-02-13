@@ -3,26 +3,30 @@
 
 <head>
   <meta charset="UTF-8">
-  <title>Task</title>
-  <link rel="stylesheet" href="dist/storage.css">
+  <title>Tickets Pro</title>
+  <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.1/css/all.css"
+    integrity="sha384-fnmOCqbTlWIlj8LyTjo7mOUStjsKC4pOpQbqyi7RrhN7udi9RwhKkMHpvLbHG9Sr" crossorigin="anonymous">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
 </head>
 
 <body>
-  <div class="container">
+  <div class="container-fluid ">
     <div class="row">
       <div class="col-12">
-        <nav class="navbar navbar-expand-sm fixed-top navbar-dark bg-dark">
-          <a class="navbar-brand" href="#">tickets</a>
+        <nav class="navbar navbar-expand-sm fixed-top navbar-light ">
+          <a class="navbar-brand" href="#">
+            <img src="./src/img/earth.jpg">
+          </a>
           <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent">
             <span class="navbar-toggler-icon"></span>
           </button>
 
           <div class="collapse navbar-collapse" id="navbarSupportedContent">
             <ul class="navbar-nav">
-              <li class="nav-item active">
+              <li class="nav-item ">
                 <a class="nav-link" href="index.html">Home</a>
               </li>
-              <li class="nav-item">
+              <li class="nav-item active">
                 <a class="nav-link" href="history.html">History</a>
               </li>
               <li class="nav-item">
@@ -34,18 +38,19 @@
         </nav>
       </div>
     </div>
-    <div class="row">
-      <div class="col">
-        <div class="bt-glyphicons">
-          <ul class="list-group bt-glyphicons-list" id="for-history">
+    <div class="row mx-auto">
+      <div class="col-12 boxHistory">
+        <ul id="for-history">
+        </ul>
+      </div>
+      <div class="col-12 mx-auto">
+        <nav aria-label="Page navigation example">
+          <ul class="pagination" id="pages">
           </ul>
-        </div>
+        </nav>
       </div>
     </div>
   </div>
-
-
-  <script src="dist/storage.js"></script>
 </body>
 
 </html>

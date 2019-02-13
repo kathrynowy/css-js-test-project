@@ -1,6 +1,7 @@
 @import "~bootstrap/scss/bootstrap";
+
 body {
-  margin-top: 80px;
+  margin-top: 90px;
 }
 
 btn.close {
@@ -24,12 +25,21 @@ btn.close {
   display: block;
   width: 50px;
 }
-a.navbar-brand {
-  background-image: url('../img/plane.jpg');
-  background-size: 80px;
-  background-repeat: no-repeat;
+
+.navbar-brand {
+  img {
+    height: 50px;
+  }
 }
 
-body {
-  background-color:lightcoral;
+ .boxHistory {
+  min-height: 246px;
+ }
+
+ .navbar {
+  background-color: #fde9eb;
+}
+
+.page-item {
+  float: left;
 }
